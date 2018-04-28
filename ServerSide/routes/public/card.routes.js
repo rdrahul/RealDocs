@@ -3,8 +3,9 @@
 const
     express = require('express'),
     router = express.Router(),
-    CardController = require('../controllers/card.controller');
+    CardController = require('../../controllers/card.controller');
 
+// router.get('/', CardController.getAll);
 router.get('/:cardId' , CardController.read);
 router.post('/', CardController.create);
 router.delete('/:cardId' , CardController.delete);

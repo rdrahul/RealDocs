@@ -5,8 +5,11 @@ const
     crypto = require('crypto'),
     _ = require('lodash');
 
-let UserSchema = new Schema({
-    
+let CardSchema = new Schema({
+    userId : {
+        type: Schema.Types.ObjectId,
+        required:true
+    },
     cardType : {
         type :String ,
         enum: ['debit', 'credit'],
@@ -36,6 +39,14 @@ let UserSchema = new Schema({
     },
     expiry:{
         type: Date
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 });
 

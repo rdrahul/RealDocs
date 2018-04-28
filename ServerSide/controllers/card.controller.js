@@ -26,7 +26,6 @@ Card.create( card , (err , response ) => {
 */
 let GetCard = (req , res ) => {
 let CardId = Operators.getQueryParams( req , 'cardId' );
-
 Card.findById( CardId  , (err , card) => {
     if (err) 
         return  res.status(500).json( {err : err} );
@@ -38,7 +37,6 @@ Card.findById( CardId  , (err , card) => {
  //delete the card
 let DeleteCard = (req , res) => {
 let id = Operators.getQueryParams( req  , 'cardId' );
-
 Card.findByIdAndRemove( id  , (err , response) => {
     if (err) 
         return res.status(500).json({err : err });
@@ -49,8 +47,13 @@ Card.findByIdAndRemove( id  , (err , response) => {
 
 //update the card
 let UpdateCard = (req, res) => {
-let Id = Operators.getBody( req , 'cardId');
-Card.findByIdAndUpdate( Id  , { $set : req.body } , { new :true} ,  (err , updateCard) => {
+let Id = Operators.getQueryParams( req , 'cardId');
+
+let updatedObject = req.body;
+updatedObject.updatedAt = new Date();
+
+Card.findByIdAndUpdate( Id  , { $set : updatedObject
+ } , { new :true} ,  (err , updateCard) => {
     if ( err )
         return res.status(500).json({ err : err })
 
