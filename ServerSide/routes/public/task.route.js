@@ -3,7 +3,7 @@
 const
     express = require('express'),
     router = express.Router(),
-    TaskController = require('../controllers/task.controller');
+    TaskController = require('../../controllers/task.controller');
 
 router.get('/', TaskController.getAll);
 router.get('/:TaskId' , TaskController.read);

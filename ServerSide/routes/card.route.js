@@ -11,7 +11,5 @@ router.delete('/:cardId' , CardController.delete);
 router.put('/:cardId' , CardController.update);
 
 module.exports = function(app) {
-
     app.use('/api/cards', router);
-
 }
