@@ -20,8 +20,9 @@ let CreateUser = ( req , res ) =>{
 
 	
 	let user = new User( { name : name , email : email  , password : password  });
-	
+	console.log(user);
 	user.save((err , newUser )=>{
+		console.log(newUser);
 		if (err)
 		return res.status(500).json(err);
 		return res.status(201).json(newUser);

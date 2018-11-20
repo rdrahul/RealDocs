@@ -28,20 +28,12 @@ module.exports = (app, io) => {
     // Mongoose setup
     // mongoose.Promise = bluebird;
 
-    mongoose.connect(config.db.connectionString, {}, (err) => {
+    mongoose.connect(config.db.connectionString, {useCreateIndex: true,
+        useNewUrlParser: true}, (err) => {
         if (err) return console.log(err);
+        console.log("connected to database");
     });
 
-    //mongoose.set('debug', true);
-
-    let db = mongoose.connection;
-    db.on('error', () => {
-        throw new Error("Unable to connect to database");
-    });
-
-    db.on('connection', () => {
-        console.log("Connection to database successfull");
-    });
 
 	// Globbing through the routes
 	let rootPath  = path.normalize( __dirname + '/..' );
