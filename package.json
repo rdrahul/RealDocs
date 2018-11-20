@@ -29,8 +29,14 @@
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.2.0",
+<<<<<<< HEAD
     "mongoose": "^5.0.16",
     "rxjs": "^5.5.10",
+=======
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.13",
+    "rxjs": "^5.5.6",
+>>>>>>> master
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
